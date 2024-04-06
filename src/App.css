@@ -3,3 +3,11 @@
 body {
   font-family: 'Jost', sans-serif;
 }
+
+.gradientBg {
+  background: linear-gradient(150deg, #ee9ae5 30%, #5961f9 100%);
+}
+
+.bannerBtn {
+  @apply bg-purple rounded py-2 w-[140px] hover:bg-blue transition-all duration-300;
+}
