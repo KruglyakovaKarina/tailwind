@@ -1,3 +1,4 @@
+import About from '../components/About';
 import Banner from '../components/Banner';
 import Features from '../components/Features';
 
@@ -6,6 +7,7 @@ const Home = () => {
     <div className='max-w-5xl mx-auto'>
       <Banner />
       <Features />
+      <About />
     </div>
   );
 };
