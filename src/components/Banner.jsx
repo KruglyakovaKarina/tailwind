@@ -2,9 +2,9 @@ import banner from '../assets/banner.png';
 
 const Banner = () => {
   return (
-    <div className='flex gap-5 flex-col-reverse md:flex-row justify-between gradientBg rounded-xl lg:rounded-br-[80px] p-8 mx-4 mt-6 items-center'>
+    <div className='flex gap-5 flex-col-reverse md:flex-row justify-between gradientBg rounded-xl lg:rounded-br-[80px] p-8 mx-4 mt-12 items-center'>
       <div className='md:w-3/6 text-white'>
-        <h1 className='text-2xl md:text-5xl font-bold mt-4 mb-7'>
+        <h1 className='text-3xl md:text-5xl sm:text-4xl font-bold mt-4 mb-7'>
           Develop your skills without diligence
         </h1>
         <p>
