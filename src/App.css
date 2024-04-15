@@ -13,9 +13,17 @@ body {
 }
 
 .feature {
-  @apply cursor-pointer shadow-3xl rounded-2xl h-[280px] flex flex-col items-center justify-center  hover:translate-y-4 transition-all duration-300 gap-8 p-8;
+  @apply cursor-pointer shadow-3xl rounded-2xl h-[280px] flex flex-col items-center justify-center hover:translate-y-4 transition-all duration-300 gap-8 p-8;
 }
 
 .featureP {
   @apply text-blue text-xl font-bold;
+}
+
+.benefitsText {
+  @apply text-sm
+}
+
+.benefitsLi {
+  @apply inline-flex gap-3 items-center
 }
