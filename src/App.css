@@ -27,3 +27,15 @@ body {
 .benefitsLi {
   @apply inline-flex gap-3 items-center
 }
+
+.footerTitle {
+  @apply text-white font-semibold mb-6 mt-10 sm:mt-0 md:mt-0 lg:mt-0
+}
+
+.footerUl {
+  @apply gap-2 flex flex-col
+}
+
+.footerUl li {
+  @apply cursor-pointer hover:text-gray-300
+}
