@@ -3,7 +3,7 @@ import about2 from '../assets/about2.png';
 
 const About = () => {
   return (
-    <div className='mx-4 mb-20'>
+    <div id='about' className='mx-4 mb-20'>
       <div className='flex flex-col sm:flex-row lg:flex-row md:flex-row items-center justify-between mb:gap-16 lg:gap-16 gap-8'>
         <img
           src={about}

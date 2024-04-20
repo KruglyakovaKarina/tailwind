@@ -3,6 +3,7 @@ import logo from '../assets/logo.png';
 import { GrLanguage } from 'react-icons/gr';
 import { HiOutlineXMark } from 'react-icons/hi2';
 import { LuMenu } from 'react-icons/lu';
+import { Link } from 'react-scroll';
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -33,9 +34,9 @@ const Navbar = () => {
 
           <ul className='md:flex space-x-12 hidden'>
             {navItems.map(({ link, path }) => (
-              <a key={link} href={path} className='hover:text-gray-500'>
+              <Link key={link} activeClass='active' to={path} smooth={true} spy={true} offset={-100} className='hover:text-gray-500'>
                 {link}
-              </a>
+              </Link>
             ))}
           </ul>
 
@@ -61,14 +62,13 @@ const Navbar = () => {
         </nav>
 
         <div
-          className={`space-y-4 px-8 pt-5 pb-5 bg-purple ${
-            isMenuOpen ? '' : 'hidden'
-          }`}
+          className={`space-y-4 px-8 pt-5 pb-5 bg-purple ${isMenuOpen ? '' : 'hidden'
+            }`}
         >
           {navItems.map(({ link, path }) => (
-            <a key={link} href={path} className='block text-xl'>
+            <Link key={link} to={path} smooth={true} spy={true} offset={-40} className='block text-xl'>
               {link}
-            </a>
+            </Link>
           ))}
         </div>
       </div>

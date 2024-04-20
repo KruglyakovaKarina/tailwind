@@ -1,8 +1,13 @@
 import feature from '../assets/feature.png';
+import { motion } from 'framer-motion';
+import { fadeIn } from '../motion';
 
 const Features = () => {
   return (
-    <div className='mx-4 md:my-20 sm:my-12 my-12 flex flex-col lg:flex-row justify-between items-start gap-10'>
+    <div
+      id='feature'
+      className='mx-4 md:my-20 sm:my-12 my-12 flex flex-col lg:flex-row justify-between items-start gap-10'
+    >
       <div className='lg:w-1/4'>
         <h1 className='md:text-3xl text-2xl font-bold text-blue mb-3'>
           Why we are better than others

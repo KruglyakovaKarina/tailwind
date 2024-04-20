@@ -40,7 +40,7 @@ const Pricing = () => {
   ];
 
   return (
-    <div className='mx-4 mb-20'>
+    <div id='pricing' className='mx-4 mb-20'>
       <div className='text-center'>
         <h1 className='text-blue md:text-4xl text-2xl font-bold '>
           Here are all our plans
