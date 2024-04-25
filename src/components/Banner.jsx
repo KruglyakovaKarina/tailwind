@@ -1,8 +1,11 @@
 import banner from '../assets/banner.png';
 import { motion } from 'framer-motion';
 import { fadeIn } from '../motion';
+import { useTranslation } from 'react-i18next';
 
 const Banner = () => {
+  const { t } = useTranslation();
+
   return (
     <div
       id='overview'
@@ -15,15 +18,12 @@ const Banner = () => {
         className='md:w-3/6 text-white'
       >
         <h1 className='text-3xl md:text-5xl sm:text-4xl font-bold mt-4 mb-7'>
-          Develop your skills without diligence
+          {t('bannerTitle')}
         </h1>
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec
-          vulputate, ipsum eu aliquam tristique, tortor lorem lobortis magna.
-        </p>
+        <p>{t('bannerText')}</p>
         <div className='flex gap-5 mt-7 mb-4 font-medium'>
-          <button className='bannerBtn'>Get Started</button>
-          <button className='bannerBtn'>Discount</button>
+          <button className='bannerBtn'>{t('btnGetStarted')}</button>
+          <button className='bannerBtn'>{t('bannerBtn2')}</button>
         </div>
       </motion.div>
       <div>

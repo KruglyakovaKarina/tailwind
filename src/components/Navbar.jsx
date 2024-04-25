@@ -4,6 +4,7 @@ import { GrLanguage } from 'react-icons/gr';
 import { HiOutlineXMark } from 'react-icons/hi2';
 import { LuMenu } from 'react-icons/lu';
 import { Link } from 'react-scroll';
+import { useTranslation } from 'react-i18next';
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -11,15 +12,25 @@ const Navbar = () => {
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
+
+  const { t, i18n } = useTranslation();
+
+  const [language, setLanguage] = useState('en');
+
+  const changeLanguage = (language) => {
+    i18n.changeLanguage(language);
+  };
+
   const navItems = [
     {
-      link: 'Overview',
+      link: t('navbarOverview'),
       path: 'overview',
     },
-    { link: 'Feature', path: 'feature' },
-    { link: 'About', path: 'about' },
-    { link: 'Pricing', path: 'pricing' },
+    { link: t('navbarFeatures'), path: 'feature' },
+    { link: t('navbarAbout'), path: 'about' },
+    { link: t('navbarPricing'), path: 'pricing' },
   ];
+
   return (
     <div className='border-b'>
       <div className='max-w-5xl mx-auto '>
@@ -34,19 +45,34 @@ const Navbar = () => {
 
           <ul className='md:flex space-x-12 hidden'>
             {navItems.map(({ link, path }) => (
-              <Link key={link} activeClass='active' to={path} smooth={true} spy={true} offset={-100} className='hover:text-gray-500'>
+              <Link
+                key={link}
+                activeClass='active'
+                to={path}
+                smooth={true}
+                spy={true}
+                offset={-100}
+                className='hover:text-gray-500'
+              >
                 {link}
               </Link>
             ))}
           </ul>
 
           <div className='hidden md:flex space-x-12 items-center'>
-            <button className='hidden lg:flex gap-2 hover:text-purple'>
+            <button
+              onClick={() => {
+                language === 'en'
+                  ? (changeLanguage('ru'), setLanguage('ru'))
+                  : (changeLanguage('en'), setLanguage('en'));
+              }}
+              className='hidden lg:flex gap-2 hover:text-purple'
+            >
               <GrLanguage className='self-center' />
-              <span>Language</span>
+              <span>{t('navbarLanguage')}</span>
             </button>
-            <button className='bg-purple rounded px-4 py-2 transition-all duration-300 hover:text-white hover:bg-indigo-600'>
-              Sign Up
+            <button className='bg-purple rounded w-28 py-2 transition-all duration-300 hover:text-white hover:bg-indigo-600'>
+              {t('navbarSignUp')}
             </button>
           </div>
 
@@ -62,11 +88,19 @@ const Navbar = () => {
         </nav>
 
         <div
-          className={`space-y-4 px-8 pt-5 pb-5 bg-purple ${isMenuOpen ? '' : 'hidden'
-            }`}
+          className={`space-y-4 px-8 pt-5 pb-5 bg-purple ${
+            isMenuOpen ? '' : 'hidden'
+          }`}
         >
           {navItems.map(({ link, path }) => (
-            <Link key={link} to={path} smooth={true} spy={true} offset={-40} className='block text-xl'>
+            <Link
+              key={link}
+              to={path}
+              smooth={true}
+              spy={true}
+              offset={-40}
+              className='block text-xl'
+            >
               {link}
             </Link>
           ))}

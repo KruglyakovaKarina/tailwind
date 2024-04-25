@@ -1,15 +1,17 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { fadeIn } from '../motion';
+import { useTranslation } from 'react-i18next';
 
 const Pricing = () => {
+  const { t } = useTranslation();
+
   const [isYearly, setIsYearly] = useState(false);
 
   const packages = [
     {
-      name: 'Start',
-      description:
-        'Donec vulputate, consectetur ipsum eu, consectetur adipiscing elit.',
+      name: t('start'),
+      description: t('pricingText'),
       monthlyPrice: 5,
       yearlyPrice: 50,
       videos: true,
@@ -19,9 +21,8 @@ const Pricing = () => {
       advice: false,
     },
     {
-      name: 'Advance',
-      description:
-        'Donec vulputate, consectetur ipsum eu, consectetur adipiscing elit.',
+      name: t('advance'),
+      description: t('pricingText'),
       monthlyPrice: 9,
       yearlyPrice: 85,
       videos: true,
@@ -31,9 +32,8 @@ const Pricing = () => {
       advice: false,
     },
     {
-      name: 'Premium',
-      description:
-        'Donec vulputate, consectetur ipsum eu, consectetur adipiscing elit.',
+      name: t('premium'),
+      description:  t('pricingText'),
       monthlyPrice: 10,
       yearlyPrice: 100,
       videos: true,
@@ -48,11 +48,10 @@ const Pricing = () => {
     <div id='pricing' className='mx-4 mb-20'>
       <div className='text-center'>
         <h1 className='text-blue md:text-4xl text-2xl font-bold '>
-          Here are all our plans
+          {t('pricingTitle')}
         </h1>
         <p className='text-grey text-sm md:w-1/3 mx-auto mt-2'>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec
-          vulputate, ipsum eu.
+          { t('pricingText')}
         </p>
         <div className='mt-10'>
           <label
@@ -60,7 +59,7 @@ const Pricing = () => {
             className='inline-flex items-center cursor-pointer'
           >
             <span className='text-blue font-bold md:text-2xl text-xl'>
-              Monthly
+              {t('monthly')}
             </span>
             <div
               className={`${
@@ -74,7 +73,7 @@ const Pricing = () => {
               ></div>
             </div>
             <span className='text-blue font-bold md:text-2xl text-xl'>
-              Yearly
+              {t('yearly')}
             </span>
             <input
               type='checkbox'
@@ -100,7 +99,7 @@ const Pricing = () => {
               <h1 className='text-purple md:text-4xl text-4xl font-bold '>
                 {isYearly ? pkg.yearlyPrice : pkg.monthlyPrice}$
               </h1>
-              <p className=' text-sm'>{isYearly ? '/year' : '/month'}</p>
+              <p className=' text-sm'>{isYearly ? `/${t('year')}` : `/${t('month')}`}</p>
             </div>
             <div className='mt-8 text-left'>
               <ul className='flex flex-col gap-4'>
@@ -108,46 +107,46 @@ const Pricing = () => {
                   <div
                     className={`${
                       pkg.videos ? 'bg-green-400' : 'bg-red-400'
-                    } w-4 h-4 rounded-full`}
+                    } w-4 h-4 max-w-4 max-h-4 min-h-4 min-w-4 rounded-full`}
                   ></div>
-                  <p className='benefitsText'>Videos of Lessons</p>
+                  <p className='benefitsText'>{t('pricingBenefit1')}</p>
                 </li>
                 <li className='benefitsLi'>
                   <div
                     className={`${
                       pkg.homework ? 'bg-green-400' : 'bg-red-400'
-                    } w-4 h-4 rounded-full`}
+                    } w-4 h-4 max-w-4 max-h-4 min-h-4 min-w-4 rounded-full`}
                   ></div>
-                  <p className='benefitsText'>Homework check</p>
+                  <p className='benefitsText'>{t('pricingBenefit2')}</p>
                 </li>
                 <li className='benefitsLi'>
                   <div
                     className={`${
                       pkg.addTask ? 'bg-green-400' : 'bg-red-400'
-                    } w-4 h-4 rounded-full`}
+                    } w-4 h-4 max-w-4 max-h-4 min-h-4 min-w-4 rounded-full`}
                   ></div>
-                  <p className='benefitsText'>Additional practical task</p>
+                  <p className='benefitsText'>{t('pricingBenefit3')}</p>
                 </li>
                 <li className='benefitsLi'>
                   <div
                     className={`${
                       pkg.conferences ? 'bg-green-400' : 'bg-red-400'
-                    } w-4 h-4 rounded-full`}
+                    } w-4 h-4 max-w-4 max-h-4 min-h-4 min-w-4 rounded-full`}
                   ></div>
-                  <p className='benefitsText'>Monthly conferences</p>
+                  <p className='benefitsText'>{t('pricingBenefit4')}</p>
                 </li>
                 <li className='benefitsLi'>
                   <div
                     className={`${
                       pkg.advice ? 'bg-green-400' : 'bg-red-400'
-                    } w-4 h-4 rounded-full`}
+                    } w-4 h-4 max-w-4 max-h-4 min-h-4 min-w-4 rounded-full`}
                   ></div>
-                  <p className='benefitsText'>Personal advice from teachers</p>
+                  <p className='benefitsText'>{t('pricingBenefit5')}</p>
                 </li>
               </ul>
             </div>
             <button className='mt-8 md:mx-0  text-purple border-purple border-[1px] hover:text-white bg-white rounded py-2 w-[140px] hover:bg-purple transition-all duration-300'>
-              Get Started
+              {t('btnGetStarted')}
             </button>
           </div>
         ))}
