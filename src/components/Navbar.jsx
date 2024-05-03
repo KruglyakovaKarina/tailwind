@@ -5,6 +5,7 @@ import { HiOutlineXMark } from 'react-icons/hi2';
 import { LuMenu } from 'react-icons/lu';
 import { Link } from 'react-scroll';
 import { useTranslation } from 'react-i18next';
+import { useNavigate } from 'react-router-dom';
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -30,6 +31,8 @@ const Navbar = () => {
     { link: t('navbarAbout'), path: 'about' },
     { link: t('navbarPricing'), path: 'pricing' },
   ];
+
+  const navigate = useNavigate();
 
   return (
     <div className='border-b'>
@@ -71,7 +74,12 @@ const Navbar = () => {
               <GrLanguage className='self-center' />
               <span>{t('navbarLanguage')}</span>
             </button>
-            <button className='bg-purple rounded w-28 py-2 transition-all duration-300 hover:text-white hover:bg-indigo-600'>
+            <button
+              onClick={() => {
+                navigate('/signUp');
+              }}
+              className='bg-purple rounded w-28 py-2 transition-all duration-300 hover:text-white hover:bg-indigo-600'
+            >
               {t('navbarSignUp')}
             </button>
           </div>
